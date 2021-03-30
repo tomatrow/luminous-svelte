@@ -5,16 +5,12 @@ import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 const prod = process.env.NODE_ENV === 'production';
-const name = pkg.name
-  .replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
-  .replace(/^\w/, (m) => m.toUpperCase())
-  .replace(/-\w/g, (m) => m[1].toUpperCase());
 
 export default {
   input: './src/index.ts',
   external: ['svelte'],
   output: [
-    { file: pkg.browser, format: 'umd', sourcemap: prod, name },
+    { file: pkg.browser, format: 'umd', sourcemap: prod, name: "luminous-svelte" },
     { file: pkg.module, format: 'esm', sourcemap: prod },
   ],
   plugins: [

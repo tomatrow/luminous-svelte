@@ -14,7 +14,8 @@
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "cross-env NODE_ENV=production rollup -c",
-    "dev": "rollup -cw"
+    "dev": "rollup -cw",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "luminous-lightbox": "^2.3.3",
