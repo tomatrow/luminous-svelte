@@ -1,4 +1,4 @@
-import typescript from '@wessberg/rollup-plugin-ts';
+import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
