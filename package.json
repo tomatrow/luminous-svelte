@@ -14,7 +14,7 @@
   "scripts": {
     "build": "rollup -c --environment NODE_ENV:production",
     "dev": "rollup -cw",
-    "prepare": "rollup -c --environment NODE_ENV:production"
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "luminous-lightbox": "^2.3.3",
