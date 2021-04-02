@@ -12,9 +12,9 @@
     "svelte"
   ],
   "scripts": {
-    "build": "cross-env NODE_ENV=production rollup -c",
+    "build": "rollup -c --environment NODE_ENV:production",
     "dev": "rollup -cw",
-    "prepare": "npm run build"
+    "prepare": "rollup -c --environment NODE_ENV:production"
   },
   "peerDependencies": {
     "luminous-lightbox": "^2.3.3",
