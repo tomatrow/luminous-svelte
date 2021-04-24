@@ -1,2 +1,2 @@
 export * from "./luminous"
-export * from "./types"
+export * from "./index.type"

@@ -1,3 +1,10 @@
+export interface GalleryActionConfig {
+    selector?: string
+    options?(
+        instance: () => LuminousGallery
+    ): { galleryOptions?: GalleryOptions; luminousOptions?: LuminousOptions }
+}
+
 export interface LuminousOptions {
     // Prefix for generated element class names (e.g. `my-ns` will
     // result in classes such as `my-ns-lightbox`. Default `lum-`
@@ -42,13 +49,12 @@ export interface GalleryOptions {
     arrowNavigation?: boolean
 }
 
-
 export interface LuminousGallery {
     new (
         triggers: Element[],
         options: GalleryOptions,
         luminousOpts: LuminousOptions
-    )
+    ): LuminousGallery
     destroy(): void
     triggers: Element[]
     luminousInstances: Luminous[]
@@ -62,7 +68,7 @@ export interface Lightbox {
 }
 
 export interface Luminous {
-    new (trigger: Element, options: LuminousOptions)
+    new (trigger: Element, options: LuminousOptions): Luminous
     open(e: Event): void
     close(e: Event): void
     destroy(): void

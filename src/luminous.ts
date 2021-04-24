@@ -1,12 +1,6 @@
+//@ts-ignore
 import { LuminousGallery } from "luminous-lightbox"
-import type { LuminousOptions, GalleryOptions } from "./types"
-
-export interface GalleryActionConfig {
-    selector?: string
-    options?(
-        instance: () => LuminousGallery
-    ): { galleryOptions?: GalleryOptions; luminousOptions?: LuminousOptions }
-}
+import type { GalleryActionConfig } from "./index.type"
 
 export function gallery(node: HTMLElement, config: GalleryActionConfig = { selector: "a" }) {
     let instance: LuminousGallery

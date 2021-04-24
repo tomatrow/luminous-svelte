@@ -1,22 +1,39 @@
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
-import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
+import dts from "rollup-plugin-dts"
+import esbuild from "rollup-plugin-esbuild"
+import pkg from "./package.json"
+import { terser } from "rollup-plugin-terser"
 
-const production = process.env.NODE_ENV === 'production';
+const production = process.env.NODE_ENV === "production"
 
-export default {
-  input: './src/index.ts',
-  external: ['svelte'],
-  output: [
-    { file: pkg.browser, format: 'umd', sourcemap: production, name: "LuminousSvelte" },
-    { file: pkg.module, format: 'esm', sourcemap: production },
-  ],
-  plugins: [
-    resolve({ browser: true }),
-    commonjs(),
-    typescript(),
-    production && terser(),
-  ],
-};
+const name = pkg.main.replace(/\.js$/, "")
+
+const bundle = config => ({
+    ...config,
+    input: "src/index.ts",
+    external: id => !/^[./]/.test(id)
+})
+
+export default [
+    bundle({
+        plugins: [esbuild(), production && terser()],
+        output: [
+            {
+                file: `${name}.js`,
+                format: "cjs",
+                sourcemap: true
+            },
+            {
+                file: `${name}.mjs`,
+                format: "es",
+                sourcemap: true
+            }
+        ]
+    }),
+    bundle({
+        plugins: [dts()],
+        output: {
+            file: `${name}.d.ts`,
+            format: "es"
+        }
+    })
+]
