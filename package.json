@@ -1,13 +1,13 @@
 {
     "name": "@tomatrow/luminous-svelte",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Svelte action for luminous",
     "main": "dist/index.js",
     "browser": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
     "license": "MIT",
-    "repository": "github:tomatrow/luminous-svelte",
+    "repository": "git://github.com/tomatrow/luminous-svelte.git",
     "keywords": [
         "svelte"
     ],
@@ -41,6 +41,5 @@
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/"
-    },
-    "repository": "git://github.com/tomatrow/luminous-svelte.git"
+    }
 }
