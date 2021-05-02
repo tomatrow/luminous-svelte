@@ -1,5 +1,5 @@
 {
-    "name": "luminous-svelte",
+    "name": "@tomatrow/luminous-svelte",
     "version": "0.1.0",
     "description": "Svelte action for luminous",
     "main": "dist/index.js",
@@ -14,7 +14,9 @@
     "scripts": {
         "prepare": "npm run build",
         "build": "rollup -c --environment NODE_ENV:production",
-        "dev": "rollup -cw"
+        "dev": "rollup -cw",
+        "version": "",
+        "postversion": "git push && git push --tags && npm publish"
     },
     "peerDependencies": {
         "luminous-lightbox": "^2.3.3",
@@ -36,5 +38,9 @@
         "rollup-plugin-terser": "^7.0.2",
         "tslib": "^2.2.0",
         "typescript": "^4.2.4"
-    }
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "repository": "git://github.com/tomatrow/luminous-svelte.git"
 }
