@@ -12,7 +12,7 @@
         "svelte"
     ],
     "scripts": {
-        "prepare": "npm run build",
+        "prepublish": "npm run build",
         "build": "rollup -c --environment NODE_ENV:production",
         "dev": "rollup -cw",
         "version": "",
