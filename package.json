@@ -1,6 +1,6 @@
 {
     "name": "@tomatrow/luminous-svelte",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Svelte action for luminous",
     "main": "dist/index.js",
     "browser": "./dist/index.js",
